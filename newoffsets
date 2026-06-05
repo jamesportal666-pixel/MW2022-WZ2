@@ -1,0 +1,1851 @@
+uintptr_t get_client_info()
+{
+        const uint64_t mb = module_base;
+        uint64_t rax = mb, rbx = mb, rcx = mb, rdx = mb, rdi = mb, rsi = mb, r8 = mb, r9 = mb, r10 = mb, r11 = mb, r12 = mb, r13 = mb, r14 = mb, r15 = mb;
+        rdx = driver::baeee<uintptr_t>(module_base + 0x118287E8);
+        if(!rdx)
+                return rdx;
+        rcx = sdk::peb;                 //mov rcx, gs:[rax]
+        rdx -= rcx;             //sub rdx, rcx
+        rax = 0;                //and rax, 0xFFFFFFFFC0000000
+        r8 = 0x693186CC4D1F9DB;                 //mov r8, 0x693186CC4D1F9DB
+        rdx *= r8;              //imul rdx, r8
+        rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+        r8 = 0x57548B4D82F080EE;                //mov r8, 0x57548B4D82F080EE
+        rax ^= driver::baeee<uintptr_t>(module_base + 0x90050E6);           //xor rax, [0x0000000006F191E3]
+        rdx += r8;              //add rdx, r8
+        rax = _byteswap_uint64(rax);            //bswap rax
+        rdx *= driver::baeee<uintptr_t>(rax + 0x13);             //imul rdx, [rax+0x13]
+        rax = rdx;              //mov rax, rdx
+        rdx >>= 0x20;           //shr rdx, 0x20
+        rdx ^= rax;             //xor rdx, rax
+        rdx += rcx;             //add rdx, rcx
+        return rdx;
+}
+uintptr_t get_client_info_base()
+{
+        const uint64_t mb = module_base;
+        uint64_t rax = mb, rbx = mb, rcx = mb, rdx = mb, rdi = mb, rsi = mb, r8 = mb, r9 = mb, r10 = mb, r11 = mb, r12 = mb, r13 = mb, r14 = mb, r15 = mb;
+        rdx = driver::baeee<uintptr_t>(sdk::client_info + 0x18bc20);
+        if(!rdx)
+                return rdx;
+        r11= ~sdk::peb;                 //mov r11, gs:[rax]
+        rax = r11;              //mov rax, r11
+        //failed to translate: mov [rsp+0xA0], r13
+        rax = _rotl64(rax, 0x21);               //rol rax, 0x21
+        rax &= 0xF;
+        switch(rax) {
+        case 0:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9E298]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC99178]
+                rax = 0x9141C45BFD5B39F7;               //mov rax, 0x9141C45BFD5B39F7
+                rdx ^= rax;             //xor rdx, rax
+                rcx = rdx + rbx * 1;            //lea rcx, [rdx+rbx*1]
+                rdx = module_base + 0x6E33AF72;            //lea rdx, [0x000000006BFD3CFA]
+                rax = 0xF605A67470E7C53D;               //mov rax, 0xF605A67470E7C53D
+                rcx *= rax;             //imul rcx, rax
+                rax = r11;              //mov rax, r11
+                rax ^= rdx;             //xor rax, rdx
+                rcx -= rax;             //sub rcx, rax
+                rcx -= rbx;             //sub rcx, rbx
+                rdx = rcx + 0xffffffffd10685d8;                 //lea rdx, [rcx-0x2EF97A28]
+                rdx += r11;             //add rdx, r11
+                rax = module_base + 0x526CB4F4;            //lea rax, [0x00000000503645AC]
+                rax = ~rax;             //not rax
+                rax -= r11;             //sub rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1A;           //shr rax, 0x1A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x34;           //shr rax, 0x34
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                return rdx;
+        }
+        case 1:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9DE23]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC98D0E]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x24;           //shr rax, 0x24
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xE570A6F93EC9464F;               //mov rax, 0xE570A6F93EC9464F
+                rdx *= rax;             //imul rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x24;           //shr rax, 0x24
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x11;           //shr rax, 0x11
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x22;           //shr rax, 0x22
+                rdx ^= rax;             //xor rdx, rax
+                rdx -= rbx;             //sub rdx, rbx
+                rdx += r11;             //add rdx, r11
+                rax = 0x14F095F380F9EB43;               //mov rax, 0x14F095F380F9EB43
+                rdx += rax;             //add rdx, rax
+                return rdx;
+        }
+        case 2:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9D99A]
+                rax = 0x8ADB88DACDCF2087;               //mov rax, 0x8ADB88DACDCF2087
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x7962CBE13BD24CEA;               //mov rax, 0x7962CBE13BD24CEA
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x10;           //shr rax, 0x10
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x20;           //shr rax, 0x20
+                rdx ^= rax;             //xor rdx, rax
+                rdx += r11;             //add rdx, r11
+                rdx += r11;             //add rdx, r11
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rdx -= r11;             //sub rdx, r11
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1D;           //shr rax, 0x1D
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x3A;           //shr rax, 0x3A
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 3:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9D5E1]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC984CC]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x25;           //shr rax, 0x25
+                rax ^= rdx;             //xor rax, rdx
+                rdx = 0x99B04B837FD2242B;               //mov rdx, 0x99B04B837FD2242B
+                rdx += rax;             //add rdx, rax
+                rdx += rbx;             //add rdx, rbx
+                rdx ^= r11;             //xor rdx, r11
+                rdx -= rbx;             //sub rdx, rbx
+                rax = module_base + 0x11751E8B;            //lea rax, [0x000000000F3E9FE7]
+                rax = ~rax;             //not rax
+                rax -= r11;             //sub rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rax = 0xDA47FAB853EFDBF7;               //mov rax, 0xDA47FAB853EFDBF7
+                rdx *= rax;             //imul rdx, rax
+                return rdx;
+        }
+        case 4:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9D152]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC98032]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2;            //shr rax, 0x02
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x4;            //shr rax, 0x04
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x8;            //shr rax, 0x08
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x10;           //shr rax, 0x10
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x20;           //shr rax, 0x20
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x718CFE6D52D76081;               //mov rax, 0x718CFE6D52D76081
+                rdx *= rax;             //imul rdx, rax
+                rax = r11;              //mov rax, r11
+                rax ^= rdx;             //xor rax, rdx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rdx = module_base + 0x746D9936;            //lea rdx, [0x00000000723716FB]
+                rdx ^= rax;             //xor rdx, rax
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rdx *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rdx, [rcx+0x19]
+                rcx = 0x6A0BA8494B6820F5;               //mov rcx, 0x6A0BA8494B6820F5
+                rdx += rcx;             //add rdx, rcx
+                rdx ^= rbx;             //xor rdx, rbx
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x15;           //shr rax, 0x15
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2A;           //shr rax, 0x2A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1C;           //shr rax, 0x1C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x38;           //shr rax, 0x38
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 5:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x900510E);             //mov r9, [0x0000000006C9CBF5]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x15;           //shr rax, 0x15
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2A;           //shr rax, 0x2A
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x6B4D10E3FCFC0235;               //mov rax, 0x6B4D10E3FCFC0235
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x3;            //shr rax, 0x03
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x6;            //shr rax, 0x06
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xC;            //shr rax, 0x0C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x18;           //shr rax, 0x18
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x30;           //shr rax, 0x30
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1A;           //shr rax, 0x1A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x34;           //shr rax, 0x34
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1C;           //shr rax, 0x1C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x38;           //shr rax, 0x38
+                rdx ^= rax;             //xor rdx, rax
+                uintptr_t RSP_0x7F;
+                RSP_0x7F = 0x9FE7D7D2C91086EF;          //mov rax, 0x9FE7D7D2C91086EF : RBP+0x7F
+                rdx *= RSP_0x7F;                //imul rdx, [rbp+0x7F]
+                uintptr_t RSP_0xFFFFFFFFFFFFFFC7;
+                RSP_0xFFFFFFFFFFFFFFC7 = 0x3B044E06AA0DC65D;            //mov rax, 0x3B044E06AA0DC65D : RBP+0xFFFFFFFFFFFFFFC7
+                rdx += RSP_0xFFFFFFFFFFFFFFC7;          //add rdx, [rbp-0x39]
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                return rdx;
+        }
+        case 6:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x900510E);             //mov r9, [0x0000000006C9C6BE]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC975A9]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xF;            //shr rax, 0x0F
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1E;           //shr rax, 0x1E
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x3C;           //shr rax, 0x3C
+                rdx ^= rax;             //xor rdx, rax
+                rdx -= r11;             //sub rdx, r11
+                rdx ^= r11;             //xor rdx, r11
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = ~rax;             //not rax
+                rax = driver::baeee<uintptr_t>(rax + 0x19);              //mov rax, [rax+0x19]
+                uintptr_t RSP_0xFFFFFFFFFFFFFFBF;
+                RSP_0xFFFFFFFFFFFFFFBF = 0xB64C05FA8BB41ED5;            //mov rax, 0xB64C05FA8BB41ED5 : RBP+0xFFFFFFFFFFFFFFBF
+                rax *= RSP_0xFFFFFFFFFFFFFFBF;          //imul rax, [rbp-0x41]
+                rdx *= rax;             //imul rdx, rax
+                rdx -= rbx;             //sub rdx, rbx
+                rax = 0xA1839DE961442277;               //mov rax, 0xA1839DE961442277
+                rdx *= rax;             //imul rdx, rax
+                return rdx;
+        }
+        case 7:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9C267]
+                rax = module_base + 0x7E9B;                //lea rax, [0xFFFFFFFFFDC9EC09]
+                rcx = r11;              //mov rcx, r11
+                rdx += rax;             //add rdx, rax
+                rcx = ~rcx;             //not rcx
+                rdx += rcx;             //add rdx, rcx
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xD;            //shr rax, 0x0D
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1A;           //shr rax, 0x1A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x34;           //shr rax, 0x34
+                rdx ^= rax;             //xor rdx, rax
+                rax = r11;              //mov rax, r11
+                uintptr_t RSP_0x77;
+                RSP_0x77 = module_base + 0x2B12;           //lea rax, [0xFFFFFFFFFDC99C64] : RBP+0x77
+                rax ^= RSP_0x77;                //xor rax, [rbp+0x77]
+                rdx -= rax;             //sub rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x27;           //shr rax, 0x27
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rax = 0x6B0468CD6B4B36F5;               //mov rax, 0x6B0468CD6B4B36F5
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x67D32343BA582459;               //mov rax, 0x67D32343BA582459
+                rdx -= rax;             //sub rdx, rax
+                rax = 0x2AB381DC49040AEF;               //mov rax, 0x2AB381DC49040AEF
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 8:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9BD8D]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC96C78]
+                rax = 0xF27764D7BCC134E1;               //mov rax, 0xF27764D7BCC134E1
+                rdx *= rax;             //imul rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x7;            //shr rax, 0x07
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xE;            //shr rax, 0x0E
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1C;           //shr rax, 0x1C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x38;           //shr rax, 0x38
+                rdx ^= rax;             //xor rdx, rax
+                rdx ^= rbx;             //xor rdx, rbx
+                rax = 0xC3107C6F6CB6AAB7;               //mov rax, 0xC3107C6F6CB6AAB7
+                rdx *= rax;             //imul rdx, rax
+                rax = 0xD1B5E7C8461A7E03;               //mov rax, 0xD1B5E7C8461A7E03
+                rdx ^= rax;             //xor rdx, rax
+                rax = module_base + 0x4977696C;            //lea rax, [0x000000004740D425]
+                rax = ~rax;             //not rax
+                rax += r11;             //add rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = r11;              //mov rax, r11
+                rax -= rbx;             //sub rax, rbx
+                rax += 0xFFFFFFFFFFFF4E09;              //add rax, 0xFFFFFFFFFFFF4E09
+                rdx += rax;             //add rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                return rdx;
+        }
+        case 9:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9B908]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC967F3]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x23;           //shr rax, 0x23
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xA7B0F0AA378850A7;               //mov rax, 0xA7B0F0AA378850A7
+                rdx *= rax;             //imul rdx, rax
+                rdx ^= rbx;             //xor rdx, rbx
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1B;           //shr rax, 0x1B
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x36;           //shr rax, 0x36
+                rdx ^= rax;             //xor rdx, rax
+                rax = rbx + 0xd85;              //lea rax, [rbx+0xD85]
+                rax += r11;             //add rax, r11
+                rdx += rax;             //add rdx, rax
+                rdx -= rbx;             //sub rdx, rbx
+                uintptr_t RSP_0x77;
+                RSP_0x77 = 0x4E5E1AE762C3863A;          //mov rax, 0x4E5E1AE762C3863A : RBP+0x77
+                rdx ^= RSP_0x77;                //xor rdx, [rbp+0x77]
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                return rdx;
+        }
+        case 10:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x900510E);             //mov r9, [0x0000000006C9B472]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC9635D]
+                r13 = module_base + 0xF084;                //lea r13, [0xFFFFFFFFFDCA53CA]
+                rax = 0x98CD10A39FEEABC3;               //mov rax, 0x98CD10A39FEEABC3
+                rdx *= rax;             //imul rdx, rax
+                rax = rbx + 0x8af0;             //lea rax, [rbx+0x8AF0]
+                rax += r11;             //add rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x10;           //shr rax, 0x10
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x20;           //shr rax, 0x20
+                rdx ^= rax;             //xor rdx, rax
+                rax = r11;              //mov rax, r11
+                rax = ~rax;             //not rax
+                rax ^= r13;             //xor rax, r13
+                rdx += rax;             //add rdx, rax
+                rax = 0xDF8A1660CBF5F30F;               //mov rax, 0xDF8A1660CBF5F30F
+                rdx *= rax;             //imul rdx, rax
+                rax = 0xA829D63D19635A8D;               //mov rax, 0xA829D63D19635A8D
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rdx ^= r11;             //xor rdx, r11
+                return rdx;
+        }
+        case 11:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9B01E]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC95F09]
+                rcx = rdx;              //mov rcx, rdx
+                rcx >>= 0x23;           //shr rcx, 0x23
+                rcx ^= r11;             //xor rcx, r11
+                rax = module_base + 0x17E7D121;            //lea rax, [0x0000000015B12D02]
+                rcx ^= rax;             //xor rcx, rax
+                rax = r11 + 0x1;                //lea rax, [r11+0x01]
+                rcx ^= rdx;             //xor rcx, rdx
+                rdx = module_base + 0x7D39B186;            //lea rdx, [0x000000007B030D56]
+                rdx *= rax;             //imul rdx, rax
+                rdx += rcx;             //add rdx, rcx
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rax = rbx + 0x8cb1;             //lea rax, [rbx+0x8CB1]
+                rax += r11;             //add rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                rdx ^= r11;             //xor rdx, r11
+                rax = 0x71B5B118240CFD7D;               //mov rax, 0x71B5B118240CFD7D
+                rdx *= rax;             //imul rdx, rax
+                rax = rbx + 0x2611654c;                 //lea rax, [rbx+0x2611654C]
+                rax += r11;             //add rax, r11
+                rdx += rax;             //add rdx, rax
+                return rdx;
+        }
+        case 12:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9AC57]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC95B42]
+                rcx = module_base + 0x4291859E;            //lea rcx, [0x00000000405AE08B]
+                rdx -= rbx;             //sub rdx, rbx
+                rax = rcx;              //mov rax, rcx
+                rax = ~rax;             //not rax
+                rax ^= r11;             //xor rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x10;           //shr rax, 0x10
+                rdx ^= rax;             //xor rdx, rax
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rax = rdx;              //mov rax, rdx
+                rcx = ~rcx;             //not rcx
+                rax >>= 0x20;           //shr rax, 0x20
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x6A01EB295C695943;               //mov rax, 0x6A01EB295C695943
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x9BBE6575DCB15C28;               //mov rax, 0x9BBE6575DCB15C28
+                rdx ^= rax;             //xor rdx, rax
+                rdx *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rdx, [rcx+0x19]
+                rax = 0x9A76A1C3B04C8361;               //mov rax, 0x9A76A1C3B04C8361
+                rdx *= rax;             //imul rdx, rax
+                rdx -= rbx;             //sub rdx, rbx
+                return rdx;
+        }
+        case 13:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9A7E2]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC956CD]
+                rdx ^= rbx;             //xor rdx, rbx
+                rax = 0x424E7D3CE7A4BDA3;               //mov rax, 0x424E7D3CE7A4BDA3
+                rdx *= rax;             //imul rdx, rax
+                rax = module_base + 0x1A767856;            //lea rax, [0x00000000183FCB10]
+                rax = ~rax;             //not rax
+                rax ^= r11;             //xor rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xF;            //shr rax, 0x0F
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1E;           //shr rax, 0x1E
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x3C;           //shr rax, 0x3C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1;            //shr rax, 0x01
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2;            //shr rax, 0x02
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x4;            //shr rax, 0x04
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x8;            //shr rax, 0x08
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x10;           //shr rax, 0x10
+                rdx ^= rax;             //xor rdx, rax
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rax = rdx;              //mov rax, rdx
+                rcx ^= r10;             //xor rcx, r10
+                rax >>= 0x20;           //shr rax, 0x20
+                rcx = ~rcx;             //not rcx
+                rdx ^= rax;             //xor rdx, rax
+                rdx *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rdx, [rcx+0x19]
+                uintptr_t RSP_0xFFFFFFFFFFFFFFA7;
+                RSP_0xFFFFFFFFFFFFFFA7 = 0x8DB30096C278A251;            //mov rax, 0x8DB30096C278A251 : RBP+0xFFFFFFFFFFFFFFA7
+                rdx *= RSP_0xFFFFFFFFFFFFFFA7;          //imul rdx, [rbp-0x59]
+                rax = rbx + 0x31eb9108;                 //lea rax, [rbx+0x31EB9108]
+                rax += r11;             //add rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 14:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C9A2F2]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC951D2]
+                rcx = rbx + 0xa832;             //lea rcx, [rbx+0xA832]
+                rcx += r11;             //add rcx, r11
+                rcx ^= rdx;             //xor rcx, rdx
+                rdx = r11;              //mov rdx, r11
+                rdx = ~rdx;             //not rdx
+                rdx += rcx;             //add rdx, rcx
+                rdx -= rbx;             //sub rdx, rbx
+                rdx -= 0x2FECE2F9;              //sub rdx, 0x2FECE2F9
+                rax = rbx + 0x4948;             //lea rax, [rbx+0x4948]
+                rax += r11;             //add rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = 0xE986304E17E64F7D;               //mov rax, 0xE986304E17E64F7D
+                rdx *= rax;             //imul rdx, rax
+                rax = module_base + 0x5BB7;                //lea rax, [0xFFFFFFFFFDC9AC11]
+                rax = ~rax;             //not rax
+                rax -= r11;             //sub rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1A;           //shr rax, 0x1A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x34;           //shr rax, 0x34
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rax = r11;              //mov rax, r11
+                rax = ~rax;             //not rax
+                uintptr_t RSP_0x77;
+                RSP_0x77 = module_base + 0x30A5920C;               //lea rax, [0x000000002E6EE3E9] : RBP+0x77
+                rax ^= RSP_0x77;                //xor rax, [rbp+0x77]
+                rdx += rax;             //add rdx, rax
+                return rdx;
+        }
+        case 15:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x900510E);            //mov r10, [0x0000000006C99DD3]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDC94CBE]
+                rcx = module_base + 0x56C36699;            //lea rcx, [0x00000000548CB2AB]
+                rax = 0x14288A7031FA1D2A;               //mov rax, 0x14288A7031FA1D2A
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xA;            //shr rax, 0x0A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x14;           //shr rax, 0x14
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x28;           //shr rax, 0x28
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xF471F0FE111CB275;               //mov rax, 0xF471F0FE111CB275
+                rdx *= rax;             //imul rdx, rax
+                rax = rcx;              //mov rax, rcx
+                rax = ~rax;             //not rax
+                rax *= r11;             //imul rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                rdx -= r11;             //sub rdx, r11
+                rdx -= rbx;             //sub rdx, rbx
+                rdx -= 0x57EC1422;              //sub rdx, 0x57EC1422
+                rax = r11;              //mov rax, r11
+                uintptr_t RSP_0xFFFFFFFFFFFFFFDF;
+                RSP_0xFFFFFFFFFFFFFFDF = module_base + 0xF4C;              //lea rax, [0xFFFFFFFFFDC95BCC] : RBP+0xFFFFFFFFFFFFFFDF
+                rax *= RSP_0xFFFFFFFFFFFFFFDF;          //imul rax, [rbp-0x21]
+                rdx += rax;             //add rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = ~rax;             //not rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x19);             //imul rdx, [rax+0x19]
+                rax = module_base + 0x1793;                //lea rax, [0xFFFFFFFFFDC96123]
+                rax -= r11;             //sub rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        }
+}
+uintptr_t GetCentity()
+{
+        const uint64_t mb = module_base;
+        uint64_t rax = mb, rbx = mb, rcx = mb, rdx = mb, rdi = mb, rsi = mb, r8 = mb, r9 = mb, r10 = mb, r11 = mb, r12 = mb, r13 = mb, r14 = mb, r15 = mb;
+        rax = driver::baeee<uintptr_t>(module_base + 0x11828788);
+        if(!rax)
+                return rax;
+        rax = driver::baeee<uint64_t>(rax + 0x10);
+        rdi = sdk::peb;                 //mov rdi, gs:[rcx]
+        rcx = rdi;              //mov rcx, rdi
+        //failed to translate: mov [rsp+0x68], r13
+        rcx = _rotr64(rcx, 0x15);               //ror rcx, 0x15
+        rcx &= 0xF;
+        switch(rcx) {
+        case 0:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x9005072);             //mov r9, [0x0000000006F8165F]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF7C5DA]
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x16;           //shr rcx, 0x16
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x2C;           //shr rcx, 0x2C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xC;            //shr rcx, 0x0C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x18;           //shr rcx, 0x18
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x30;           //shr rcx, 0x30
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x6FE9825B7B133177;               //mov rcx, 0x6FE9825B7B133177
+                rax += rcx;             //add rax, rcx
+                rcx = 0x317F71C95FF620D7;               //mov rcx, 0x317F71C95FF620D7
+                rax ^= rcx;             //xor rax, rcx
+                rax += rdi;             //add rax, rdi
+                rcx = 0xF9C5F1B6115C2687;               //mov rcx, 0xF9C5F1B6115C2687
+                rax *= rcx;             //imul rax, rcx
+                rax += rbx;             //add rax, rbx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r9;              //xor rcx, r9
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                return rax;
+        }
+        case 1:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x9005072);             //mov r9, [0x0000000006F81197]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF7C112]
+                r13 = module_base + 0x8DB9;                //lea r13, [0xFFFFFFFFFDF84EC0]
+                rcx = r13;              //mov rcx, r13
+                rcx = ~rcx;             //not rcx
+                rcx += rdi;             //add rcx, rdi
+                rax ^= rcx;             //xor rax, rcx
+                rax -= rdi;             //sub rax, rdi
+                rax += rbx;             //add rax, rbx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r9;              //xor rcx, r9
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = 0xDC4943555048BA4C;               //mov rcx, 0xDC4943555048BA4C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xBB426821406B1E0F;               //mov rcx, 0xBB426821406B1E0F
+                rax *= rcx;             //imul rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x19;           //shr rcx, 0x19
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x32;           //shr rcx, 0x32
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x36B1FC15CAB5B3ED;               //mov rcx, 0x36B1FC15CAB5B3ED
+                rax -= rcx;             //sub rax, rcx
+                return rax;
+        }
+        case 2:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F80D18]
+                r13 = module_base + 0x4BBAF984;            //lea r13, [0x0000000049B2B617]
+                rdx = module_base + 0x23BCD45C;            //lea rdx, [0x0000000021B490A1]
+                rcx = rdi;              //mov rcx, rdi
+                rcx *= r13;             //imul rcx, r13
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xC4E7CCAAD0AD77C6;               //mov rcx, 0xC4E7CCAAD0AD77C6
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rdi;              //mov rcx, rdi
+                rcx = ~rcx;             //not rcx
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xA5F155D8E67A39A7;               //mov rcx, 0xA5F155D8E67A39A7
+                rax ^= rdx;             //xor rax, rdx
+                rax *= rcx;             //imul rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x24;           //shr rcx, 0x24
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x8656F81561F60A3F;               //mov rcx, 0x8656F81561F60A3F
+                rax += rcx;             //add rax, rcx
+                rax += rdi;             //add rax, rdi
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                return rax;
+        }
+        case 3:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F8091C]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF7B892]
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x23;           //shr rcx, 0x23
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x62EAEEC4ED51C9DB;               //mov rcx, 0x62EAEEC4ED51C9DB
+                rax *= rcx;             //imul rax, rcx
+                rcx = rbx + 0x9fa;              //lea rcx, [rbx+0x9FA]
+                rcx += rdi;             //add rcx, rdi
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xE;            //shr rcx, 0x0E
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1C;           //shr rcx, 0x1C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x38;           //shr rcx, 0x38
+                rax ^= rcx;             //xor rax, rcx
+                uintptr_t RSP_0x38;
+                RSP_0x38 = 0xA95DD5305CE9B154;          //mov rcx, 0xA95DD5305CE9B154 : RBP+0x38
+                rax ^= RSP_0x38;                //xor rax, [rbp+0x38]
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = 0x4F34B84B5F02879E;               //mov rcx, 0x4F34B84B5F02879E
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x6;            //shr rcx, 0x06
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xC;            //shr rcx, 0x0C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x18;           //shr rcx, 0x18
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x30;           //shr rcx, 0x30
+                rax ^= rcx;             //xor rax, rcx
+                return rax;
+        }
+        case 4:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x9005072);             //mov r9, [0x0000000006F80346]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF7B2C1]
+                rax ^= rbx;             //xor rax, rbx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x4;            //shr rcx, 0x04
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x8;            //shr rcx, 0x08
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x10;           //shr rcx, 0x10
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x20;           //shr rcx, 0x20
+                rax ^= rcx;             //xor rax, rcx
+                rax += rdi;             //add rax, rdi
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1A;           //shr rcx, 0x1A
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x34;           //shr rcx, 0x34
+                rax ^= rcx;             //xor rax, rcx
+                uintptr_t RSP_0xFFFFFFFFFFFFFFB8;
+                RSP_0xFFFFFFFFFFFFFFB8 = 0xC3454C677B6C450A;            //mov rcx, 0xC3454C677B6C450A : RBP+0xFFFFFFFFFFFFFFB8
+                rax ^= RSP_0xFFFFFFFFFFFFFFB8;          //xor rax, [rbp-0x48]
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r9;              //xor rcx, r9
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = 0x5CB94B3ACDFD3BE0;               //mov rcx, 0x5CB94B3ACDFD3BE0
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xDE22352AB56A7F4F;               //mov rcx, 0xDE22352AB56A7F4F
+                rax *= rcx;             //imul rax, rcx
+                return rax;
+        }
+        case 5:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7FDCD]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF7AD43]
+                r11 = module_base + 0x138E;                //lea r11, [0xFFFFFFFFFDF7C0C6]
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x16;           //shr rcx, 0x16
+                rax ^= rcx;             //xor rax, rcx
+                rdx = 0;                //and rdx, 0xFFFFFFFFC0000000
+                rdx = _rotl64(rdx, 0x10);               //rol rdx, 0x10
+                rdx ^= r10;             //xor rdx, r10
+                rdx = ~rdx;             //not rdx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x2C;           //shr rcx, 0x2C
+                rax ^= rcx;             //xor rax, rcx
+                rax -= rbx;             //sub rax, rbx
+                rax *= driver::baeee<uintptr_t>(rdx + 0x19);             //imul rax, [rdx+0x19]
+                rcx = 0x636EE2CAC570B7EF;               //mov rcx, 0x636EE2CAC570B7EF
+                rax *= rcx;             //imul rax, rcx
+                rdx = rdi;              //mov rdx, rdi
+                rdx = ~rdx;             //not rdx
+                rcx = r11;              //mov rcx, r11
+                rcx = ~rcx;             //not rcx
+                rdx += rcx;             //add rdx, rcx
+                rax ^= rdx;             //xor rax, rdx
+                rax += rdi;             //add rax, rdi
+                rcx = 0x23CA8F736C6B7AB9;               //mov rcx, 0x23CA8F736C6B7AB9
+                rax += rcx;             //add rax, rcx
+                rcx = 0xFFFFFFFFFFFFA167;               //mov rcx, 0xFFFFFFFFFFFFA167
+                rcx -= rdi;             //sub rcx, rdi
+                rcx -= rbx;             //sub rcx, rbx
+                rax += rcx;             //add rax, rcx
+                return rax;
+        }
+        case 6:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x9005072);             //mov r9, [0x0000000006F7FA14]
+                r11 = module_base + 0x361E11CE;            //lea r11, [0x000000003415BB5D]
+                rcx = 0x71B767D70509F9D9;               //mov rcx, 0x71B767D70509F9D9
+                rax *= rcx;             //imul rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x27;           //shr rcx, 0x27
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r9;              //xor rcx, r9
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = rdi;              //mov rcx, rdi
+                rcx *= r11;             //imul rcx, r11
+                rax -= rcx;             //sub rax, rcx
+                rax ^= rdi;             //xor rax, rdi
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x6;            //shr rcx, 0x06
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xC;            //shr rcx, 0x0C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x18;           //shr rcx, 0x18
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x30;           //shr rcx, 0x30
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x83F747984955B93;                //mov rcx, 0x83F747984955B93
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x2B2E052E1B910CF5;               //mov rcx, 0x2B2E052E1B910CF5
+                rax ^= rcx;             //xor rax, rcx
+                return rax;
+        }
+        case 7:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7F4BC]
+                rax += rdi;             //add rax, rdi
+                rdx = rdi;              //mov rdx, rdi
+                rdx = ~rdx;             //not rdx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = module_base + 0xC44;                 //lea rcx, [0xFFFFFFFFFDF7AE2F]
+                rcx = ~rcx;             //not rcx
+                rdx *= rcx;             //imul rdx, rcx
+                rax += rdx;             //add rax, rdx
+                rax += rdi;             //add rax, rdi
+                rcx = 0xB18D7317307990F9;               //mov rcx, 0xB18D7317307990F9
+                rax *= rcx;             //imul rax, rcx
+                rcx = 0x6F0669318096511;                //mov rcx, 0x6F0669318096511
+                rax -= rcx;             //sub rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x20;           //shr rcx, 0x20
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xC;            //shr rcx, 0x0C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x18;           //shr rcx, 0x18
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x30;           //shr rcx, 0x30
+                rax ^= rcx;             //xor rax, rcx
+                return rax;
+        }
+        case 8:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x9005072);             //mov r9, [0x0000000006F7F01D]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF79F93]
+                r11 = module_base + 0x5CFEF1BA;            //lea r11, [0x000000005AF69142]
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x26;           //shr rcx, 0x26
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x6FBBBCB7CC65EFDF;               //mov rcx, 0x6FBBBCB7CC65EFDF
+                rax *= rcx;             //imul rax, rcx
+                rcx = rdi;              //mov rcx, rdi
+                rcx *= r11;             //imul rcx, r11
+                rax -= rcx;             //sub rax, rcx
+                rcx = 0x544D05A66C81FF16;               //mov rcx, 0x544D05A66C81FF16
+                rax ^= rcx;             //xor rax, rcx
+                rax ^= rbx;             //xor rax, rbx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r9;              //xor rcx, r9
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = 0x657D82B7EA6638C7;               //mov rcx, 0x657D82B7EA6638C7
+                rax -= rcx;             //sub rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xF;            //shr rcx, 0x0F
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1E;           //shr rcx, 0x1E
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x3C;           //shr rcx, 0x3C
+                rax ^= rcx;             //xor rax, rcx
+                return rax;
+        }
+        case 9:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7EB6B]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF79AE6]
+                rax ^= rbx;             //xor rax, rbx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x13;           //shr rcx, 0x13
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x26;           //shr rcx, 0x26
+                rax ^= rcx;             //xor rax, rcx
+                rax += rdi;             //add rax, rdi
+                rax -= rbx;             //sub rax, rbx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = 0x222F4FE8BD7C72CF;               //mov rcx, 0x222F4FE8BD7C72CF
+                rax += rcx;             //add rax, rcx
+                rcx = 0xE19D7F496E375A5B;               //mov rcx, 0xE19D7F496E375A5B
+                rax *= rcx;             //imul rax, rcx
+                rcx = 0x463FB3685BD76DB0;               //mov rcx, 0x463FB3685BD76DB0
+                rax -= rcx;             //sub rax, rcx
+                return rax;
+        }
+        case 10:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7E6D0]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF7964B]
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = 0xFFFFFFFFE74E91BA;               //mov rcx, 0xFFFFFFFFE74E91BA
+                rcx -= rdi;             //sub rcx, rdi
+                rcx -= rbx;             //sub rcx, rbx
+                rax += rcx;             //add rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x28;           //shr rcx, 0x28
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x18;           //shr rcx, 0x18
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x30;           //shr rcx, 0x30
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1B;           //shr rcx, 0x1B
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x36;           //shr rcx, 0x36
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xEAF48C48EF649813;               //mov rcx, 0xEAF48C48EF649813
+                rax *= rcx;             //imul rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1E;           //shr rcx, 0x1E
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x3C;           //shr rcx, 0x3C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xD;            //shr rcx, 0x0D
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1A;           //shr rcx, 0x1A
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x34;           //shr rcx, 0x34
+                rax ^= rcx;             //xor rax, rcx
+                return rax;
+        }
+        case 11:
+        {
+                r11 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r11, [0x0000000006F7E121]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF79097]
+                rdx = rdi;              //mov rdx, rdi
+                rdx = ~rdx;             //not rdx
+                rcx = module_base + 0xBEFD;                //lea rcx, [0xFFFFFFFFFDF84E66]
+                rcx = ~rcx;             //not rcx
+                rdx += rcx;             //add rdx, rcx
+                rcx = 0xB6EB2EACD69C58E;                //mov rcx, 0xB6EB2EACD69C58E
+                rcx += rax;             //add rcx, rax
+                rax = rdx;              //mov rax, rdx
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xC3361C2A39EC5139;               //mov rcx, 0xC3361C2A39EC5139
+                rax *= rcx;             //imul rax, rcx
+                rax -= rbx;             //sub rax, rbx
+                rax -= rdi;             //sub rax, rdi
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x3;            //shr rcx, 0x03
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x6;            //shr rcx, 0x06
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xC;            //shr rcx, 0x0C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x18;           //shr rcx, 0x18
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x30;           //shr rcx, 0x30
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r11;             //xor rcx, r11
+                rcx = ~rcx;             //not rcx
+                rcx = driver::baeee<uintptr_t>(rcx + 0x19);              //mov rcx, [rcx+0x19]
+                uintptr_t RSP_0x38;
+                RSP_0x38 = 0x830DD71505DEB765;          //mov rcx, 0x830DD71505DEB765 : RBP+0x38
+                rcx *= RSP_0x38;                //imul rcx, [rbp+0x38]
+                rax *= rcx;             //imul rax, rcx
+                return rax;
+        }
+        case 12:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7DCF3]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF78C6E]
+                rax ^= rdi;             //xor rax, rdi
+                rcx = 0x80A39C8841BAF9C7;               //mov rcx, 0x80A39C8841BAF9C7
+                rax *= rcx;             //imul rax, rcx
+                rcx = 0xF9DE26B836C9F9D1;               //mov rcx, 0xF9DE26B836C9F9D1
+                rax *= rcx;             //imul rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0xE;            //shr rcx, 0x0E
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1C;           //shr rcx, 0x1C
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x38;           //shr rcx, 0x38
+                rax ^= rcx;             //xor rax, rcx
+                rax += rbx;             //add rax, rbx
+                rcx = module_base + 0x3EC9A74C;            //lea rcx, [0x000000003CC13243]
+                rcx -= rdi;             //sub rcx, rdi
+                rax += rcx;             //add rax, rcx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rcx = rdi;              //mov rcx, rdi
+                uintptr_t RSP_0xFFFFFFFFFFFFFFA0;
+                RSP_0xFFFFFFFFFFFFFFA0 = module_base + 0x1E4434C4;                 //lea rcx, [0x000000001C3BC0BF] : RBP+0xFFFFFFFFFFFFFFA0
+                rcx -= RSP_0xFFFFFFFFFFFFFFA0;          //sub rcx, [rbp-0x60]
+                rax ^= rcx;             //xor rax, rcx
+                return rax;
+        }
+        case 13:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x9005072);             //mov r9, [0x0000000006F7D853]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF787CE]
+                r11 = module_base + 0x2F1B78A8;            //lea r11, [0x000000002D130027]
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1F;           //shr rcx, 0x1F
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x3E;           //shr rcx, 0x3E
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rdi;              //mov rcx, rdi
+                rcx *= r11;             //imul rcx, r11
+                rax += rcx;             //add rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1;            //shr rcx, 0x01
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x2;            //shr rcx, 0x02
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x4;            //shr rcx, 0x04
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x8;            //shr rcx, 0x08
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x10;           //shr rcx, 0x10
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x20;           //shr rcx, 0x20
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0x3EC3A8AE10AF579F;               //mov rcx, 0x3EC3A8AE10AF579F
+                rax *= rcx;             //imul rax, rcx
+                r11 = 0xD221FA07CB3C93A7;               //mov r11, 0xD221FA07CB3C93A7
+                rax += r11;             //add rax, r11
+                r11 = 0x8A9AC0FCB9EE90ED;               //mov r11, 0x8A9AC0FCB9EE90ED
+                rax ^= r11;             //xor rax, r11
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r9;              //xor rcx, r9
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                rax -= rbx;             //sub rax, rbx
+                return rax;
+        }
+        case 14:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7D396]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF78311]
+                rdx = rdi;              //mov rdx, rdi
+                rcx = module_base + 0x5874;                //lea rcx, [0xFFFFFFFFFDF7DA4B]
+                rdx = ~rdx;             //not rdx
+                rcx = ~rcx;             //not rcx
+                rdx *= rcx;             //imul rdx, rcx
+                rax ^= rdx;             //xor rax, rdx
+                rax -= rdi;             //sub rax, rdi
+                rdx = 0;                //and rdx, 0xFFFFFFFFC0000000
+                rcx = rax;              //mov rcx, rax
+                rdx = _rotl64(rdx, 0x10);               //rol rdx, 0x10
+                rcx >>= 0x27;           //shr rcx, 0x27
+                rdx ^= r10;             //xor rdx, r10
+                rax ^= rcx;             //xor rax, rcx
+                rdx = ~rdx;             //not rdx
+                rcx = 0xBE8471A593EE3B0;                //mov rcx, 0xBE8471A593EE3B0
+                rax *= driver::baeee<uintptr_t>(rdx + 0x19);             //imul rax, [rdx+0x19]
+                rax ^= rcx;             //xor rax, rcx
+                rax -= rbx;             //sub rax, rbx
+                rcx = 0x62016D46C477E8E5;               //mov rcx, 0x62016D46C477E8E5
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0xEDDEFE22DDE0564B;               //mov rcx, 0xEDDEFE22DDE0564B
+                rax *= rcx;             //imul rax, rcx
+                return rax;
+        }
+        case 15:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x9005072);            //mov r10, [0x0000000006F7CF47]
+                rbx = module_base;                 //lea rbx, [0xFFFFFFFFFDF77EC2]
+                rcx = 0x426800F9421F046D;               //mov rcx, 0x426800F9421F046D
+                rcx -= rdi;             //sub rcx, rdi
+                rax += rcx;             //add rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1A;           //shr rcx, 0x1A
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x34;           //shr rcx, 0x34
+                rax ^= rcx;             //xor rax, rcx
+                rcx = module_base + 0x6E57;                //lea rcx, [0xFFFFFFFFFDF7EA93]
+                rcx -= rdi;             //sub rcx, rdi
+                rax += rcx;             //add rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x1F;           //shr rcx, 0x1F
+                rax ^= rcx;             //xor rax, rcx
+                rcx = rax;              //mov rcx, rax
+                rcx >>= 0x3E;           //shr rcx, 0x3E
+                rax ^= rcx;             //xor rax, rcx
+                rdx = rdi;              //mov rdx, rdi
+                rdx = ~rdx;             //not rdx
+                rdx -= rbx;             //sub rdx, rbx
+                rcx = rax;              //mov rcx, rax
+                rax = 0x22A6F339C72E576D;               //mov rax, 0x22A6F339C72E576D
+                rcx *= rax;             //imul rcx, rax
+                rax = rdx + 0xffffffffb2b6ef75;                 //lea rax, [rdx-0x4D49108B]
+                rax ^= rcx;             //xor rax, rcx
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = ~rcx;             //not rcx
+                rax *= driver::baeee<uintptr_t>(rcx + 0x19);             //imul rax, [rcx+0x19]
+                return rax;
+        }
+        }
+}
+uintptr_t get_bone()
+{
+        const uint64_t mb = module_base;
+        uint64_t rax = mb, rbx = mb, rcx = mb, rdx = mb, rdi = mb, rsi = mb, r8 = mb, r9 = mb, r10 = mb, r11 = mb, r12 = mb, r13 = mb, r14 = mb, r15 = mb;
+        rdx = driver::baeee<uintptr_t>(module_base + 0xCA37E48);
+        if(!rdx)
+                return rdx;
+        r11 = sdk::peb;                 //mov r11, gs:[rax]
+        rax = r11;              //mov rax, r11
+        rax = _rotr64(rax, 0x15);               //ror rax, 0x15
+        rax &= 0xF;
+        switch(rax) {
+        case 0:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x90051FC);             //mov r9, [0x0000000006CBD5A8]
+                r15 = module_base + 0x629DAB46;            //lea r15, [0x0000000060692EEB]
+                r13 = module_base + 0x9895;                //lea r13, [0xFFFFFFFFFDCC1C2E]
+                rax = 0xAC145E023332D189;               //mov rax, 0xAC145E023332D189
+                rdx ^= rax;             //xor rdx, rax
+                rax = r15;              //mov rax, r15
+                rax = ~rax;             //not rax
+                rax *= r11;             //imul rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = 0xFDEBD2F07B05670D;               //mov rax, 0xFDEBD2F07B05670D
+                rdx *= rax;             //imul rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x3;            //shr rax, 0x03
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x6;            //shr rax, 0x06
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xC;            //shr rax, 0x0C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x18;           //shr rax, 0x18
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x30;           //shr rax, 0x30
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xF0805972B46E082;                //mov rax, 0xF0805972B46E082
+                rdx -= rax;             //sub rdx, rax
+                rax = r11;              //mov rax, r11
+                rax ^= r13;             //xor rax, r13
+                rdx += rax;             //add rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x4;            //shr rax, 0x04
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x8;            //shr rax, 0x08
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x10;           //shr rax, 0x10
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x20;           //shr rax, 0x20
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 1:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x90051FC);             //mov r9, [0x0000000006CBCF2D]
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = 0x3ECBF33498144A56;               //mov rax, 0x3ECBF33498144A56
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xA;            //shr rax, 0x0A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x14;           //shr rax, 0x14
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x28;           //shr rax, 0x28
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x87F19886B363B05B;               //mov rax, 0x87F19886B363B05B
+                rdx *= rax;             //imul rdx, rax
+                rdx -= r11;             //sub rdx, r11
+                rax = 0x6303659E1F345AFF;               //mov rax, 0x6303659E1F345AFF
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x15;           //shr rax, 0x15
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2A;           //shr rax, 0x2A
+                rdx ^= rax;             //xor rdx, rax
+                rdx += r11;             //add rdx, r11
+                return rdx;
+        }
+        case 2:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBCAAD]
+                r13 = module_base + 0x6F7AC17A;            //lea r13, [0x000000006D463A18]
+                rdx += r11;             //add rdx, r11
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x13;           //shr rax, 0x13
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x26;           //shr rax, 0x26
+                rdx ^= rax;             //xor rdx, rax
+                rax = module_base + 0x62BA;                //lea rax, [0xFFFFFFFFFDCBD861]
+                rax -= r11;             //sub rax, r11
+                rdx += rax;             //add rdx, rax
+                rax = 0x6367F6E201B667AF;               //mov rax, 0x6367F6E201B667AF
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x7EA109C91958478C;               //mov rax, 0x7EA109C91958478C
+                rdx -= rax;             //sub rdx, rax
+                rdx ^= r11;             //xor rdx, r11
+                rdx ^= r13;             //xor rdx, r13
+                rax = 0x79658B29969CD86A;               //mov rax, 0x79658B29969CD86A
+                rdx -= rax;             //sub rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                return rdx;
+        }
+        case 3:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x90051FC);             //mov r9, [0x0000000006CBC5FD]
+                r14 = module_base + 0xF8CE;                //lea r14, [0xFFFFFFFFFDCC6CBC]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x20;           //shr rax, 0x20
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xEA0A19EF431520D;                //mov rax, 0xEA0A19EF431520D
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xFFFFFFFF93B5ED93;               //mov rax, 0xFFFFFFFF93B5ED93
+                rax -= r11;             //sub rax, r11
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rdx += rax;             //add rdx, rax
+                rax = r11;              //mov rax, r11
+                rax *= r14;             //imul rax, r14
+                rdx -= rax;             //sub rdx, rax
+                rax = 0x39F863E9187B3F65;               //mov rax, 0x39F863E9187B3F65
+                rdx *= rax;             //imul rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1F;           //shr rax, 0x1F
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x3E;           //shr rax, 0x3E
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x44AFB2020B72DD38;               //mov rax, 0x44AFB2020B72DD38
+                rdx += rax;             //add rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                return rdx;
+        }
+        case 4:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x90051FC);             //mov r9, [0x0000000006CBC0E2]
+                r15 = module_base + 0xD76E;                //lea r15, [0xFFFFFFFFFDCC4641]
+                rax = r15;              //mov rax, r15
+                rax = ~rax;             //not rax
+                rax ^= r11;             //xor rax, r11
+                rdx -= rax;             //sub rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x24;           //shr rax, 0x24
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x2690031C441C94ED;               //mov rax, 0x2690031C441C94ED
+                rdx *= rax;             //imul rdx, rax
+                rdx ^= r11;             //xor rdx, r11
+                rax = 0xA3A6498F1C56BC17;               //mov rax, 0xA3A6498F1C56BC17
+                rdx ^= rax;             //xor rdx, rax
+                rdx -= r11;             //sub rdx, r11
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                return rdx;
+        }
+        case 5:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBBC95]
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB68CC]
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x19;           //shr rax, 0x19
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x32;           //shr rax, 0x32
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rcx = driver::baeee<uintptr_t>(rax + 0x11);              //mov rcx, [rax+0x11]
+                rax = r11;              //mov rax, r11
+                uintptr_t RSP_0x48;
+                RSP_0x48 = module_base + 0x598F00A5;               //lea rax, [0x00000000575A6AE4] : RSP+0x48
+                rax *= RSP_0x48;                //imul rax, [rsp+0x48]
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rdx += rax;             //add rdx, rax
+                rax = 0xC6D870371839E04D;               //mov rax, 0xC6D870371839E04D
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x2435BC22D4E2922B;               //mov rax, 0x2435BC22D4E2922B
+                rdx -= rax;             //sub rdx, rax
+                rdx *= rcx;             //imul rdx, rcx
+                rax = 0xBBD9DF3CECEEFE74;               //mov rax, 0xBBD9DF3CECEEFE74
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x23B4F504FA125955;               //mov rax, 0x23B4F504FA125955
+                rdx *= rax;             //imul rdx, rax
+                return rdx;
+        }
+        case 6:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBB859]
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rax = r11;              //mov rax, r11
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rax += 0xFFFFFFFFA7D1474C;              //add rax, 0xFFFFFFFFA7D1474C
+                rdx += rax;             //add rdx, rax
+                rcx ^= r10;             //xor rcx, r10
+                rcx = _byteswap_uint64(rcx);            //bswap rcx
+                rdx *= driver::baeee<uintptr_t>(rcx + 0x11);             //imul rdx, [rcx+0x11]
+                rax = 0xFFFFFFFFC0CD4EE3;               //mov rax, 0xFFFFFFFFC0CD4EE3
+                rax -= r11;             //sub rax, r11
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x23;           //shr rax, 0x23
+                rax ^= rdx;             //xor rax, rdx
+                rdx = 0x5A8397EF69EB3410;               //mov rdx, 0x5A8397EF69EB3410
+                rax += r11;             //add rax, r11
+                rax += rdx;             //add rax, rdx
+                rdx = module_base;                 //lea rdx, [0xFFFFFFFFFDCB6366]
+                rdx += rax;             //add rdx, rax
+                rax = 0x94B908816CF2DBE1;               //mov rax, 0x94B908816CF2DBE1
+                rdx *= rax;             //imul rdx, rax
+                return rdx;
+        }
+        case 7:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBB448]
+                r15 = module_base + 0x6B60;                //lea r15, [0xFFFFFFFFFDCBCD99]
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB5F4F]
+                rax += 0xC77B;          //add rax, 0xC77B
+                rax += r11;             //add rax, r11
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x9;            //shr rax, 0x09
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x12;           //shr rax, 0x12
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x24;           //shr rax, 0x24
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x13;           //shr rax, 0x13
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x26;           //shr rax, 0x26
+                rdx ^= rax;             //xor rdx, rax
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rax = r15;              //mov rax, r15
+                rax = ~rax;             //not rax
+                rax *= r11;             //imul rax, r11
+                rcx = _byteswap_uint64(rcx);            //bswap rcx
+                rdx += rax;             //add rdx, rax
+                rax = 0x3BAB7EE1C2FB5485;               //mov rax, 0x3BAB7EE1C2FB5485
+                rdx *= driver::baeee<uintptr_t>(rcx + 0x11);             //imul rdx, [rcx+0x11]
+                rdx += rax;             //add rdx, rax
+                rax = 0xD64310FF7669DED5;               //mov rax, 0xD64310FF7669DED5
+                rdx *= rax;             //imul rdx, rax
+                rax = 0xC9A0080E2B52320A;               //mov rax, 0xC9A0080E2B52320A
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 8:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBAE75]
+                rax = r11;              //mov rax, r11
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rax += 0xFFFFFFFF954B94E9;              //add rax, 0xFFFFFFFF954B94E9
+                rdx += rax;             //add rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xE;            //shr rax, 0x0E
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1C;           //shr rax, 0x1C
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x38;           //shr rax, 0x38
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x28853EAC80AAB90;                //mov rax, 0x28853EAC80AAB90
+                rdx -= rax;             //sub rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x21;           //shr rax, 0x21
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xB;            //shr rax, 0x0B
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x16;           //shr rax, 0x16
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2C;           //shr rax, 0x2C
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x9ED615C5A516F48D;               //mov rax, 0x9ED615C5A516F48D
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x4A5451CFD1051B0F;               //mov rax, 0x4A5451CFD1051B0F
+                rdx *= rax;             //imul rdx, rax
+                return rdx;
+        }
+        case 9:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBA95C]
+                r13 = module_base + 0x9F7F;                //lea r13, [0xFFFFFFFFFDCBF6CC]
+                rcx = module_base + 0x590B7B0F;            //lea rcx, [0x0000000056D6D1E7]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x25;           //shr rax, 0x25
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = 0xE41AAE0B4978C7A7;               //mov rax, 0xE41AAE0B4978C7A7
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x4884ED1EDA36D9B2;               //mov rax, 0x4884ED1EDA36D9B2
+                rdx -= rax;             //sub rdx, rax
+                rax = r11;              //mov rax, r11
+                rax ^= r13;             //xor rax, r13
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xA5F46429036B04E5;               //mov rax, 0xA5F46429036B04E5
+                rdx *= rax;             //imul rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x27;           //shr rax, 0x27
+                rdx ^= rax;             //xor rdx, rax
+                rdx -= r11;             //sub rdx, r11
+                rdx += rcx;             //add rdx, rcx
+                return rdx;
+        }
+        case 10:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x90051FC);             //mov r9, [0x0000000006CBA4CE]
+                rdx -= module_base;                //sub rdx, [rsp+0xA0] -- didn't find trace -> use base
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = r11;              //mov rax, r11
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rax += 0xFFFFFFFFFFFF88EC;              //add rax, 0xFFFFFFFFFFFF88EC
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x12;           //shr rax, 0x12
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x24;           //shr rax, 0x24
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x4DBC160E13E56349;               //mov rax, 0x4DBC160E13E56349
+                rdx *= rax;             //imul rdx, rax
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB51A4]
+                rdx ^= rax;             //xor rdx, rax
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB5076]
+                rdx += rax;             //add rdx, rax
+                return rdx;
+        }
+        case 11:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CBA028]
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = module_base + 0x73A4FAE9;            //lea rax, [0x000000007170464D]
+                rax = ~rax;             //not rax
+                rdx -= r11;             //sub rdx, r11
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x16;           //shr rax, 0x16
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x2C;           //shr rax, 0x2C
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x861DF3431C84C629;               //mov rax, 0x861DF3431C84C629
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x714B44E8CE73C4F0;               //mov rax, 0x714B44E8CE73C4F0
+                rdx -= rax;             //sub rdx, rax
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB4AC8]
+                rcx = rax * 0xFFFFFFFFFFFFFFFE;                 //imul rcx, rax, 0xFFFFFFFFFFFFFFFE
+                rax = 0x6F9175143B9ED737;               //mov rax, 0x6F9175143B9ED737
+                rdx += rax;             //add rdx, rax
+                rdx += rcx;             //add rdx, rcx
+                return rdx;
+        }
+        case 12:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CB9C69]
+                r15 = module_base + 0xD3DA;                //lea r15, [0xFFFFFFFFFDCC1E34]
+                rcx = r11;              //mov rcx, r11
+                rcx = ~rcx;             //not rcx
+                rax = module_base + 0x1F86111B;            //lea rax, [0x000000001D515838]
+                rax = ~rax;             //not rax
+                rcx *= rax;             //imul rcx, rax
+                rax = r15;              //mov rax, r15
+                rax -= r11;             //sub rax, r11
+                rax += rdx;             //add rax, rdx
+                rdx = rcx;              //mov rdx, rcx
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rcx = module_base;                 //lea rcx, [0xFFFFFFFFFDCB48CD]
+                rax = r11;              //mov rax, r11
+                rax -= rcx;             //sub rax, rcx
+                rcx = rax + 0xffffffffca7be9d9;                 //lea rcx, [rax-0x35841627]
+                rcx += rdx;             //add rcx, rdx
+                rax = rcx;              //mov rax, rcx
+                rax >>= 0x18;           //shr rax, 0x18
+                rcx ^= rax;             //xor rcx, rax
+                rax = 0xFBA7ABC8BBB4629D;               //mov rax, 0xFBA7ABC8BBB4629D
+                rdx = rcx;              //mov rdx, rcx
+                rdx >>= 0x30;           //shr rdx, 0x30
+                rdx ^= rcx;             //xor rdx, rcx
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x1FE6307AA1F54B4D;               //mov rax, 0x1FE6307AA1F54B4D
+                rdx *= rax;             //imul rdx, rax
+                rax = 0x57A7A919AF723E1B;               //mov rax, 0x57A7A919AF723E1B
+                rdx -= rax;             //sub rdx, rax
+                return rdx;
+        }
+        case 13:
+        {
+                r9 = driver::baeee<uintptr_t>(module_base + 0x90051FC);             //mov r9, [0x0000000006CB986F]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1A;           //shr rax, 0x1A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x34;           //shr rax, 0x34
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0x525F068BC2643DF7;               //mov rax, 0x525F068BC2643DF7
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0xD;            //shr rax, 0x0D
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x1A;           //shr rax, 0x1A
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x34;           //shr rax, 0x34
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r9;              //xor rax, r9
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = 0x75DFF140FA1FB5BC;               //mov rax, 0x75DFF140FA1FB5BC
+                rdx += rax;             //add rdx, rax
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB42A6]
+                rdx += rax;             //add rdx, rax
+                rax = 0xE5945E699002C625;               //mov rax, 0xE5945E699002C625
+                rdx *= rax;             //imul rdx, rax
+                rax = module_base;                 //lea rax, [0xFFFFFFFFFDCB428E]
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 14:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CB940A]
+                r15 = module_base + 0x73A4A654;            //lea r15, [0x00000000716FE84F]
+                rax = 0x75736E13202430E1;               //mov rax, 0x75736E13202430E1
+                rdx *= rax;             //imul rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x26;           //shr rax, 0x26
+                rdx ^= rax;             //xor rdx, rax
+                rcx = 0;                //and rcx, 0xFFFFFFFFC0000000
+                rcx = _rotl64(rcx, 0x10);               //rol rcx, 0x10
+                rcx ^= r10;             //xor rcx, r10
+                rcx = _byteswap_uint64(rcx);            //bswap rcx
+                rdx *= driver::baeee<uintptr_t>(rcx + 0x11);             //imul rdx, [rcx+0x11]
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x9;            //shr rax, 0x09
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x12;           //shr rax, 0x12
+                rdx ^= rax;             //xor rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x24;           //shr rax, 0x24
+                rdx ^= rax;             //xor rdx, rax
+                rdx += r11;             //add rdx, r11
+                rax = r11;              //mov rax, r11
+                rax = ~rax;             //not rax
+                rax *= r15;             //imul rax, r15
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0xABD8E138F25E5687;               //mov rax, 0xABD8E138F25E5687
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        case 15:
+        {
+                r10 = driver::baeee<uintptr_t>(module_base + 0x90051FC);            //mov r10, [0x0000000006CB9059]
+                rsi = 0xB656FAE057EB613B;               //mov rsi, 0xB656FAE057EB613B
+                rdx *= rsi;             //imul rdx, rsi
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x21;           //shr rax, 0x21
+                rdx ^= rax;             //xor rdx, rax
+                rax = 0;                //and rax, 0xFFFFFFFFC0000000
+                rax = _rotl64(rax, 0x10);               //rol rax, 0x10
+                rax ^= r10;             //xor rax, r10
+                rax = _byteswap_uint64(rax);            //bswap rax
+                rdx *= driver::baeee<uintptr_t>(rax + 0x11);             //imul rdx, [rax+0x11]
+                rax = 0x5CA0A4447C245D90;               //mov rax, 0x5CA0A4447C245D90
+                rdx -= rax;             //sub rdx, rax
+                rdx -= r11;             //sub rdx, r11
+                rax = 0xF071D0312866EB9D;               //mov rax, 0xF071D0312866EB9D
+                rdx *= rax;             //imul rdx, rax
+                rax = 0xFFFFFFFFFFFFF34A;               //mov rax, 0xFFFFFFFFFFFFF34A
+                rax -= r11;             //sub rax, r11
+                rax -= module_base;                //sub rax, [rsp+0xA0] -- didn't find trace -> use base
+                rdx += rax;             //add rdx, rax
+                rax = rdx;              //mov rax, rdx
+                rax >>= 0x21;           //shr rax, 0x21
+                rdx ^= rax;             //xor rdx, rax
+                return rdx;
+        }
+        }
+}
+uint32_t get_bone_index(uint32_t index)
+{
+        const uint64_t mb = module_base;
+        uint64_t rax = mb, rbx = mb, rcx = mb, rdx = mb, rdi = mb, rsi = mb, r8 = mb, r9 = mb, r10 = mb, r11 = mb, r12 = mb, r13 = mb, r14 = mb, r15 = mb;
+        rdi = bone_index;
+        rcx = rdi * 0x13C8;
+        rax = 0xD73F3E9D2DBEC8E7;               //mov rax, 0xD73F3E9D2DBEC8E7
+        rax = _umul128(rax, rcx, (uintptr_t*)&rdx);             //mul rcx
+        r11 = 0xCCCCCCCCCCCCCCCD;               //mov r11, 0xCCCCCCCCCCCCCCCD
+        rbx = module_base;                 //lea rbx, [0xFFFFFFFFFD7AB05B]
+        rdx >>= 0xD;            //shr rdx, 0x0D
+        r10 = 0xE98285CCFA0AE387;               //mov r10, 0xE98285CCFA0AE387
+        rax = rdx * 0x260F;             //imul rax, rdx, 0x260F
+        rcx -= rax;             //sub rcx, rax
+        rax = 0xC388D5333BAA90CD;               //mov rax, 0xC388D5333BAA90CD
+        r8 = rcx * 0x260F;              //imul r8, rcx, 0x260F
+        rax = _umul128(rax, r8, (uintptr_t*)&rdx);              //mul r8
+        rax = r8;               //mov rax, r8
+        rax -= rdx;             //sub rax, rdx
+        rax >>= 0x1;            //shr rax, 0x01
+        rax += rdx;             //add rax, rdx
+        rax >>= 0xE;            //shr rax, 0x0E
+        rax = rax * 0x4892;             //imul rax, rax, 0x4892
+        r8 -= rax;              //sub r8, rax
+        rax = r11;              //mov rax, r11
+        rax = _umul128(rax, r8, (uintptr_t*)&rdx);              //mul r8
+        rax = 0xBAA551EE51D6FD2D;               //mov rax, 0xBAA551EE51D6FD2D
+        rdx >>= 0x3;            //shr rdx, 0x03
+        rcx = rdx + rdx * 4;            //lea rcx, [rdx+rdx*4]
+        rax = _umul128(rax, r8, (uintptr_t*)&rdx);              //mul r8
+        rdx >>= 0xB;            //shr rdx, 0x0B
+        rax = rdx + rcx * 2;            //lea rax, [rdx+rcx*2]
+        rcx = rax * 0x15F2;             //imul rcx, rax, 0x15F2
+        rax = r8 * 0x15F4;              //imul rax, r8, 0x15F4
+        rax -= rcx;             //sub rax, rcx
+        rax = driver::baeee<uint16_t>(rax + rbx * 1 + 0x90CF940);                //movzx eax, word ptr [rax+rbx*1+0x90CF940]
+        r8 = rax * 0x13C8;              //imul r8, rax, 0x13C8
+        rax = r10;              //mov rax, r10
+        rax = _umul128(rax, r8, (uintptr_t*)&rdx);              //mul r8
+        rax = r10;              //mov rax, r10
+        rdx >>= 0xD;            //shr rdx, 0x0D
+        rcx = rdx * 0x2315;             //imul rcx, rdx, 0x2315
+        r8 -= rcx;              //sub r8, rcx
+        r9 = r8 * 0x351B;               //imul r9, r8, 0x351B
+        rax = _umul128(rax, r9, (uintptr_t*)&rdx);              //mul r9
+        rax = r11;              //mov rax, r11
+        rdx >>= 0xD;            //shr rdx, 0x0D
+        rcx = rdx * 0x2315;             //imul rcx, rdx, 0x2315
+        r9 -= rcx;              //sub r9, rcx
+        rax = _umul128(rax, r9, (uintptr_t*)&rdx);              //mul r9
+        rax = 0x18AB083902BDAB95;               //mov rax, 0x18AB083902BDAB95
+        rdx >>= 0x4;            //shr rdx, 0x04
+        rcx = rdx + rdx * 4;            //lea rcx, [rdx+rdx*4]
+        rax = _umul128(rax, r9, (uintptr_t*)&rdx);              //mul r9
+        rax = r9;               //mov rax, r9
+        rax -= rdx;             //sub rax, rdx
+        rax >>= 0x1;            //shr rax, 0x01
+        rax += rdx;             //add rax, rdx
+        rax >>= 0x8;            //shr rax, 0x08
+        rax = rax + rcx * 4;            //lea rax, [rax+rcx*4]
+        rcx = rax * 0x3A6;              //imul rcx, rax, 0x3A6
+        rax = r9 * 0x3A8;               //imul rax, r9, 0x3A8
+        rax -= rcx;             //sub rax, rcx
+        r12 = driver::baeee<uint16_t>(rax + rbx * 1 + 0x90DD4C0);                //movsx r12d, word ptr [rax+rbx*1+0x90DD4C0]
+        return r12;
+}
+constexpr auto timestamp = 0x6A03E58F;
+constexpr auto ref_def_ptr = 0x1182A5D8;
+constexpr auto name_array = 0x1184A538;
+constexpr auto name_array_pos = 0x5E80;
+constexpr auto name_array_size = 0xD8;
+constexpr auto loot_ptr = 0xB74D04C;
+constexpr auto camera_base = 0x11FDE380;
+constexpr auto camera_pos = 0x218;
+constexpr auto local_index = 0x104748;
+constexpr auto local_index_pos = 0x2F0;
+constexpr auto recoil = 0x0;
+constexpr auto game_mode = 0xEA36D00;
+constexpr auto weapon_definitions = 0x11746930;
+ 
+namespace bone {
+        constexpr auto bone_base = 0x17B760;
+        constexpr auto size = 0x188;
+        constexpr auto offset = 0xD8;
+        constexpr auto distribute = 0xA72DD40;
+        constexpr auto visible_offset = 0xA90;
+        constexpr auto visible = 0x2437760;
+        }
+ 
+namespace player {
+        constexpr auto size = 0x13CD8;
+        constexpr auto valid = 0x1216;
+        constexpr auto pos = 0x1720;
+        constexpr auto team = 0x2DB;
+        constexpr auto weapon_index = 0x12F2;
+        constexpr auto dead_1 = 0x136D;
+        constexpr auto dead_2 = 0xA9D;
+        }
+ 
+namespace Centity {
+         size 0xE08
+        constexpr auto valid = 0x8A-0x2;
+        constexpr auto origin = 0xD8C;
+        constexpr auto yaw = origin + 0x28;
+        }
